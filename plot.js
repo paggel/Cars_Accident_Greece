@@ -1,18 +1,19 @@
 Plotly.d3.csv('https://raw.githubusercontent.com/paggel/Cars_Accident_Greece/master/data.csv', function(rows){
 	var trace1 = {
-		x: rows.map(function(row){
+		y: rows.map(function(row){
 			return row['Cause']
 		}),
-		y: rows.map(function(row){
+		x: rows.map(function(row){
 			return row['Number']
 		}),
 		name: 'Causes',
 		type: 'bar',
+		orientation: 'h',
 		marker: {
     	color: 'rgba(55,128,191,0.7)',
-    	line: {
-      		color: 'rgba(55,128,191,1.0)',
-      		width: 2
+    		line: {
+      			color: 'rgba(55,128,191,1.0)',
+      			width: 2
       	}
       }
 	};
@@ -25,12 +26,29 @@ Plotly.d3.csv('https://raw.githubusercontent.com/paggel/Cars_Accident_Greece/mas
 	paper_bgcolor: 'rgba(245,246,249,1)',
   	plot_bgcolor: 'rgba(245,246,249,1)',
 	xaxis : {
-	 	title:'Causes'
+	 	title:'Number of accidents',
+	 	tickcolor: 'red',
+		titlefont : {
+			color : 'red',
+			size : '20',
+		}
+
 	 },
 	 yaxis : {
-		title: 'Number of causes'
+		title: 'Causes',
+		tickcolor: 'red',
+		titlefont : {
+			color : 'red',
+			size : '20',
+		}
  },
      barmode:"stack",
+     margin: {
+    l: 250,
+    r: 20,
+    t: 100,
+    b: 70
+  },
    //  barnorm:"percent",
 };
 
